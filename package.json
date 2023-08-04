@@ -1,0 +1,14 @@
+{
+  "name": "omnistring",
+  "version": "1.0.0",
+  "description": "An NPM package to use python and cpp string functions directly in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Aritra Majumder",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.6.2"
+  }
+}
