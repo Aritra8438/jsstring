@@ -84,4 +84,7 @@ test("index method returns the first occurrence of the substring in the given ra
 
   stringToSearch = "word";
   expect(() => inputString.index(stringToSearch)).toThrow(expectedValueError);
+
+  stringToSearch = " world.";
+  expect(() => inputString.index(stringToSearch)).toThrow(expectedValueError);
 });
