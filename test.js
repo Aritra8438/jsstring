@@ -22,7 +22,7 @@ test("casefold method converts every letter to lowercase", () => {
   expect(inputString.casefold()).toBe(expectedOutput);
 });
 
-test.only("index method returns the first occurrence of the substring in the given range", () => {
+test("index method returns the first occurrence of the substring in the given range", () => {
   var inputString = "Hello world";
   var expectedValueError = "substring not found";
 
