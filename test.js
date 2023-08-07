@@ -1,7 +1,6 @@
 /** @format */
 
 require("./index");
-var idx = require("./index");
 
 test("capitalize method capitalizes the first letter of the string and convert other letters to lowercase", () => {
   var inputString = "hello world";
