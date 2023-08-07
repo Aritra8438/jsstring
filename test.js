@@ -1,6 +1,7 @@
 /** @format */
 
 require("./index");
+var idx = require("./index");
 
 test("capitalize method capitalizes the first letter of the string and convert other letters to lowercase", () => {
   var inputString = "hello world";
@@ -87,4 +88,14 @@ test("index method returns the first occurrence of the substring in the given ra
 
   stringToSearch = " world.";
   expect(() => inputString.index(stringToSearch)).toThrow(expectedValueError);
+});
+
+test("isalnum function returns a boolean value indicating if the string only contains alphanumeric characters or not", () => {
+  var inputString = "helloworld";
+  var expectedOutput = true;
+  expect(inputString.isalnum()).toBe(expectedOutput);
+
+  inputString = "hello World@345";
+  expectedOutput = false;
+  expect(inputString.isalnum()).toBe(expectedOutput);
 });
