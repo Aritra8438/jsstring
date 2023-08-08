@@ -19,6 +19,12 @@ String.prototype.index = function (value, start = 0, end = this.length) {
 };
 
 String.prototype.count = function (subString, start = 0, end = this.length) {
+  if (start < 0 || end < start || end > this.length) {
+    const err = new Error("Invalid start or end parameters");
+    err.name = "ValueError";
+    throw err;
+  }
+
   let count = 0;
   let position = this.indexOf(subString, start);
 

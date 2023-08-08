@@ -25,5 +25,5 @@ interface String {
    * @param start The position to start searching. If omitted, search starts at the beginning.
    * @param end Search upto this position. If omitted, searches till the end of the string.
    */
-  count(subString: string, start?: number, end?: number): number;
+  count(subString: string, start?: number, end?: number): number | undefined;
 }

@@ -93,35 +93,49 @@ test("count method returns the count the occurrences of a specified substring or
   var inputString = "Hello World";
   var stringToSearch = "";
   var expectedOutput = 0;
-  expect(inputString.count()).toBe(expectedOutput);
+  expect(inputString.count(stringToSearch)).toBe(expectedOutput);
 
   inputString = "Hello World";
   stringToSearch = "Hello";
   expectedOutput = 1;
-  expect(inputString.count()).toBe(expectedOutput);
+  expect(inputString.count(stringToSearch)).toBe(expectedOutput);
 
   inputString = "Hello Hello World, Hello";
   stringToSearch = "Hello";
   expectedOutput = 3;
-  expect(inputString.count()).toBe(expectedOutput);
+  expect(inputString.count(stringToSearch)).toBe(expectedOutput);
 
   inputString = "HELLO WORLD";
   stringToSearch = "Hello";
   expectedOutput = 0;
-  expect(inputString.count()).toBe(expectedOutput);
+  expect(inputString.count(stringToSearch)).toBe(expectedOutput);
 
   inputString = "HELLO WORLD";
   stringToSearch = "O";
   expectedOutput = 2;
-  expect(inputString.count()).toBe(expectedOutput);
+  expect(inputString.count(stringToSearch)).toBe(expectedOutput);
 
   inputString = "HELLO WORLD";
   stringToSearch = "o";
   expectedOutput = 0;
-  expect(inputString.count()).toBe(expectedOutput);
+  expect(inputString.count(stringToSearch)).toBe(expectedOutput);
 
   inputString = "Hello Hello World, Hello";
   stringToSearch = "Hello ";
   expectedOutput = 2;
-  expect(inputString.count()).toBe(expectedOutput);
+  expect(inputString.count(stringToSearch)).toBe(expectedOutput);
+
+  var expectedValueError = "Invalid start or end parameters";
+  inputString = "Hello Hello World, Hello";
+  stringToSearch = "Hello ";
+  expect(() => inputString.index(stringToSearch, 7, 2)).toThrow(expectedValueError);
+
+  inputString = "Hello Hello World, Hello";
+  stringToSearch = "Hello ";
+  expect(() => inputString.index(stringToSearch, 7, 100)).toThrow(expectedValueError);
+
+  inputString = "Hello Hello World, Hello";
+  stringToSearch = "Hello ";
+  expect(() => inputString.index(stringToSearch, -1, 10)).toThrow(expectedValueError);
+
 });
