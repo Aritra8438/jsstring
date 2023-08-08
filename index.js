@@ -18,4 +18,16 @@ String.prototype.index = function (value, start = 0, end = this.length) {
   }
 };
 
+String.prototype.count = function (subString, start = 0, end = this.length) {
+  let count = 0;
+  let position = this.indexOf(subString, start);
+
+  while (position !== -1 && position < end) {
+    count++;
+    position = this.indexOf(subString, position + subString.length);
+  }
+
+  return count;
+};
+
 module.exports = {};

@@ -18,4 +18,12 @@ interface String {
    * @param end Search upto this position. If omitted, searches till the end of the string.
    */
   index(value: string, start?: number, end?: number): number | undefined;
+
+  /**
+   * Returns the count the occurrences of a specified substring or character within the given string.
+   * @param value The substring to search.
+   * @param start The position to start searching. If omitted, search starts at the beginning.
+   * @param end Search upto this position. If omitted, searches till the end of the string.
+   */
+  count(subString: string, start?: number, end?: number): number;
 }

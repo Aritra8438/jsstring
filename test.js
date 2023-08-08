@@ -88,3 +88,40 @@ test("index method returns the first occurrence of the substring in the given ra
   stringToSearch = " world.";
   expect(() => inputString.index(stringToSearch)).toThrow(expectedValueError);
 });
+
+test("count method returns the count the occurrences of a specified substring or character within the given string", () => {
+  var inputString = "Hello World";
+  var stringToSearch = "";
+  var expectedOutput = 0;
+  expect(inputString.count()).toBe(expectedOutput);
+
+  inputString = "Hello World";
+  stringToSearch = "Hello";
+  expectedOutput = 1;
+  expect(inputString.count()).toBe(expectedOutput);
+
+  inputString = "Hello Hello World, Hello";
+  stringToSearch = "Hello";
+  expectedOutput = 3;
+  expect(inputString.count()).toBe(expectedOutput);
+
+  inputString = "HELLO WORLD";
+  stringToSearch = "Hello";
+  expectedOutput = 0;
+  expect(inputString.count()).toBe(expectedOutput);
+
+  inputString = "HELLO WORLD";
+  stringToSearch = "O";
+  expectedOutput = 2;
+  expect(inputString.count()).toBe(expectedOutput);
+
+  inputString = "HELLO WORLD";
+  stringToSearch = "o";
+  expectedOutput = 0;
+  expect(inputString.count()).toBe(expectedOutput);
+
+  inputString = "Hello Hello World, Hello";
+  stringToSearch = "Hello ";
+  expectedOutput = 2;
+  expect(inputString.count()).toBe(expectedOutput);
+});
