@@ -65,7 +65,7 @@ String.prototype.pysplit = function (separator = " ", maxsplit = -1) {
   if (maxsplit === -1 && result[result.length - 1] === "") {
     result.pop();
   }
-  return result.map(item => item.trim());
+  return result;
 };
 
 module.exports = {};
