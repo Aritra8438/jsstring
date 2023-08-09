@@ -145,3 +145,61 @@ test("count method returns the count the occurrences of a specified substring or
   expectedOutput = 0;
   expect(inputString.count(stringToSearch, 100, 7)).toBe(expectedOutput);
 });
+
+test("endswith method determines whether the string ends with the specified suffix", () => {
+  var inputString = "Hello, World!";
+  var suffix = "";
+  var expectedOutput = true;
+  expect(inputString.endswith(suffix)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "World!";
+  expectedOutput = true;
+  expect(inputString.endswith(suffix)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "Hello";
+  expectedOutput = false;
+  expect(inputString.endswith(suffix)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "WORLD!";
+  expectedOutput = false;
+  expect(inputString.endswith(suffix)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "o";
+  expectedOutput = true;
+  expect(inputString.endswith(suffix, -1, 5)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "!";
+  expectedOutput = true;
+  expect(inputString.endswith(suffix, 5, 100)).toBe(expectedOutput);
+
+  inputString = "";
+  suffix = "";
+  expectedOutput = true;
+  expect(inputString.endswith(suffix)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "Hello, World!";
+  expectedOutput = true;
+  expect(inputString.endswith(suffix)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "!";
+  expectedOutput = true;
+  expect(inputString.endswith(suffix)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "Hello, World! ";
+  expectedOutput = false;
+  expect(inputString.endswith(suffix)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  var expectedTypeError = "TypeError: 'suffix' must be a string";
+  suffix = 5;
+  expect(() => inputString.endswith(suffix)).toThrow(expectedTypeError);
+
+});
