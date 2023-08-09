@@ -208,3 +208,65 @@ test("endswith method determines whether the string ends with the specified suff
   expect(() => inputString.endswith(suffix)).toThrow(expectedTypeError);
 
 });
+
+test("split method splits the string into an array of substrings", () => {
+  var inputString = "Hello, World!";
+  var separator = ",";
+  var expectedOutput = ["Hello", " World!"];
+  expect(inputString.split(separator)).toEqual(expectedOutput);
+
+  separator = " ";
+  expectedOutput = ["Hello,", "World!"];
+  expect(inputString.split(separator)).toEqual(expectedOutput);
+
+  separator = "o";
+  expectedOutput = ["Hell", ", W", "rld!"];
+  expect(inputString.split(separator)).toEqual(expectedOutput);
+
+  separator = "!";
+  expectedOutput = ["Hello, World"];
+  expect(inputString.split(separator)).toEqual(expectedOutput);
+
+  separator = " ";
+  var maxsplit = 1;
+  expectedOutput = ["Hello,", "World!"];
+  expect(inputString.split(separator, maxsplit)).toEqual(expectedOutput);
+
+  separator = " ";
+  maxsplit = 2;
+  expectedOutput = ["Hello,", "World!"];
+  expect(inputString.split(separator, maxsplit)).toEqual(expectedOutput);
+
+  separator = " ";
+  maxsplit = 0;
+  expectedOutput = ["Hello, World!"];
+  expect(inputString.split(separator, maxsplit)).toEqual(expectedOutput);
+
+  separator = " ";
+  maxsplit = -1;
+  expectedOutput = ["Hello,", "World!"];
+  expect(inputString.split(separator, maxsplit)).toEqual(expectedOutput);
+
+  separator = " ";
+  maxsplit = 2;
+  expectedOutput = ["Hello,", "World!"];
+  expect(inputString.split(separator, maxsplit)).toEqual(expectedOutput);
+
+  separator = " ";
+  maxsplit = 100;
+  expectedOutput = ["Hello,", "World!"];
+  expect(inputString.split(separator, maxsplit)).toEqual(expectedOutput);
+
+  var expectedTypeError = "'separator' must be a string";
+  separator = 123; // Not a string
+  expect(() => inputString.split(separator)).toThrow(expectedTypeError);
+
+  expectedTypeError = "'maxsplit' must be a number";
+  separator = " ";
+  maxsplit = "abc"; // Not a number
+  expect(() => inputString.split(separator, maxsplit)).toThrow(expectedTypeError);
+
+  var expectedValueError = "ValueError: 'separator' cannot be empty";
+  separator = "";
+  expect(() => inputString.split(separator)).toThrow(expectedValueError);
+});

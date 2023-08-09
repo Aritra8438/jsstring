@@ -48,4 +48,26 @@ String.prototype.endswith = function (suffix, start = 0, end = this.length) {
   return substring.endsWith(suffix);
 };
 
+String.prototype.split = function (separator = " ", maxsplit = -1) {
+  if (typeof separator !== 'string') {
+    throw new TypeError("'separator' must be a string");
+  }
+  if (typeof maxsplit !== 'number') {
+    throw new TypeError("'maxsplit' must be a number");
+  }
+  if (separator === "") {
+    throw new Error("ValueError: 'separator' cannot be empty");
+  }
+  if (maxsplit === 0) {
+    return [this.toString()];
+  }
+  const result = maxsplit > 0 ? this.split(separator, maxsplit - 1) : this.split(separator);
+  return result.map((substring, index) => {
+    if (index >= result.length - 1) {
+      return substring;
+    }
+    return maxsplit === -1 ? substring : substring + separator;
+  });
+};
+
 module.exports = {};

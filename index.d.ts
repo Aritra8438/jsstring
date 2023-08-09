@@ -35,4 +35,11 @@ interface String {
  */
   endswith(suffix: string, start?: number, end?: number): boolean | undefined;
 
+  /**
+ * Returns an array of substrings obtained after splitting the given string using a specified separator and maximum number of splits.
+ * @param separator The string used to determine where to split the string.
+ * @param maxsplit The maximum number of splits. If omitted or negative, the string is split as many times as possible.
+ */
+  split(separator?: string, maxsplit?: number): string[];
+
 }
