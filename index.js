@@ -44,7 +44,7 @@ String.prototype.endswith = function (suffix, start = 0, end = this.length) {
   if (end - start < suffix.length) {
     return false;
   }
-  const substring = this.slice(start, end);
+  substring = this.slice(start, end);
   return substring.endsWith(suffix);
 };
 
