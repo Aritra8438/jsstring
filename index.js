@@ -62,15 +62,10 @@ String.prototype.pysplit = function (separator = " ", maxsplit = -1) {
     return [this.toString()];
   }
   const result = maxsplit > 0 ? this.split(separator, maxsplit - 1) : this.split(separator);
-  if (separator === "!" && result[result.length - 1] === "") {
+  if (maxsplit === -1 && result[result.length - 1] === "") {
     result.pop();
   }
-  return result.map((subString, index) => {
-    if (index >= result.length - 1) {
-      return subString;
-    }
-    return maxsplit === -1 ? subString : subString + separator;
-  });
+  return result;
 };
 
 module.exports = {};
