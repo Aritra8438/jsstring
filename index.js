@@ -31,4 +31,21 @@ String.prototype.count = function (sub, start = 0, end = this.length) {
   return count;
 };
 
+String.prototype.endswith = function (suffix, start = 0, end = this.length) {
+  if (typeof suffix !== 'string') {
+    throw new TypeError("'suffix' must be a string");
+  }
+  if (end > this.length) {
+    end = this.length;
+  }
+  if (start < 0) {
+    start = 0;
+  }
+  if (end - start < suffix.length) {
+    return false;
+  }
+  const substring = this.slice(start, end);
+  return substring.endsWith(suffix);
+};
+
 module.exports = {};
