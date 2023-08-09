@@ -203,7 +203,7 @@ test("endswith method determines whether the string ends with the specified suff
   expect(inputString.endswith(suffix)).toBe(expectedOutput);
 
   inputString = "Hello, World!";
-  var expectedTypeError = "TypeError: 'suffix' must be a string";
+  var expectedTypeError = "'suffix' must be a string";
   suffix = 5;
   expect(() => inputString.endswith(suffix)).toThrow(expectedTypeError);
 
