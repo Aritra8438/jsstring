@@ -62,11 +62,11 @@ String.prototype.split = function (separator = " ", maxsplit = -1) {
     return [this.toString()];
   }
   const result = maxsplit > 0 ? this.split(separator, maxsplit - 1) : this.split(separator);
-  return result.map((substring, index) => {
+  return result.map((subString, index) => {
     if (index >= result.length - 1) {
-      return substring;
+      return subString;
     }
-    return maxsplit === -1 ? substring : substring + separator;
+    return maxsplit === -1 ? subString : subString + separator;
   });
 };
 
