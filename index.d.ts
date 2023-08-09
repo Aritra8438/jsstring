@@ -40,6 +40,6 @@ interface String {
  * @param separator The string used to determine where to split the string.
  * @param maxsplit The maximum number of splits. If omitted or negative, the string is split as many times as possible.
  */
-  split(separator?: string, maxsplit?: number): string[];
+  pysplit(separator?: string, maxsplit?: number): string[];
 
 }

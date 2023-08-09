@@ -48,7 +48,7 @@ String.prototype.endswith = function (suffix, start = 0, end = this.length) {
   return substring.endsWith(suffix);
 };
 
-String.prototype.split = function (separator = " ", maxsplit = -1) {
+String.prototype.pysplit = function (separator = " ", maxsplit = -1) {
   if (typeof separator !== 'string') {
     throw new TypeError("'separator' must be a string");
   }
