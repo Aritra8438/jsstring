@@ -92,7 +92,7 @@ test("index method returns the first occurrence of the substring in the given ra
 test("count method returns the count the occurrences of a specified substring or character within the given string", () => {
   var inputString = "Hello World";
   var stringToSearch = "";
-  var expectedOutput = 0;
+  var expectedOutput = 12;
   expect(inputString.count(stringToSearch)).toBe(expectedOutput);
 
   inputString = "Hello World";
@@ -125,17 +125,23 @@ test("count method returns the count the occurrences of a specified substring or
   expectedOutput = 2;
   expect(inputString.count(stringToSearch)).toBe(expectedOutput);
 
-  var expectedValueError = "Invalid start or end parameters";
   inputString = "Hello Hello World, Hello";
   stringToSearch = "Hello ";
-  expect(() => inputString.index(stringToSearch, 7, 2)).toThrow(expectedValueError);
+  expectedOutput = 2;
+  expect(inputString.count(stringToSearch, 0, 100)).toBe(expectedOutput);
 
   inputString = "Hello Hello World, Hello";
   stringToSearch = "Hello ";
-  expect(() => inputString.index(stringToSearch, 7, 100)).toThrow(expectedValueError);
+  expectedOutput = 1;
+  expect(inputString.count(stringToSearch, 5, 100)).toBe(expectedOutput);
 
   inputString = "Hello Hello World, Hello";
   stringToSearch = "Hello ";
-  expect(() => inputString.index(stringToSearch, -1, 10)).toThrow(expectedValueError);
+  expectedOutput = 0;
+  expect(inputString.count(stringToSearch, 7, 100)).toBe(expectedOutput);
 
+  inputString = "Hello Hello World, Hello";
+  stringToSearch = "Hello ";
+  expectedOutput = 0;
+  expect(inputString.count(stringToSearch, 100, 7)).toBe(expectedOutput);
 });
