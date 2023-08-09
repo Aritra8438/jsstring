@@ -163,6 +163,11 @@ test("endswith method determines whether the string ends with the specified suff
   expect(inputString.endswith(suffix)).toBe(expectedOutput);
 
   inputString = "Hello, World!";
+  suffix = "!";
+  expectedOutput = false;
+  expect(inputString.endswith(suffix, 10, 1)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
   suffix = "WORLD!";
   expectedOutput = false;
   expect(inputString.endswith(suffix)).toBe(expectedOutput);
