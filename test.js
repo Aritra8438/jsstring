@@ -206,7 +206,6 @@ test("endswith method determines whether the string ends with the specified suff
   var expectedTypeError = "'suffix' must be a string";
   suffix = 5;
   expect(() => inputString.endswith(suffix)).toThrow(expectedTypeError);
-
 });
 
 test("split method splits the string into an array of substrings", () => {
@@ -224,7 +223,7 @@ test("split method splits the string into an array of substrings", () => {
   expect(inputString.pysplit(separator)).toEqual(expectedOutput);
 
   separator = "!";
-  expectedOutput = ["Hello, World"];
+  expectedOutput = ["Hello, World", ""];
   expect(inputString.pysplit(separator)).toEqual(expectedOutput);
 
   separator = " ";
@@ -264,9 +263,11 @@ test("split method splits the string into an array of substrings", () => {
   expectedTypeError = "'maxsplit' must be a number";
   separator = " ";
   maxsplit = "abc"; // Not a number
-  expect(() => inputString.pysplit(separator, maxsplit)).toThrow(expectedTypeError);
+  expect(() => inputString.pysplit(separator, maxsplit)).toThrow(
+    expectedTypeError
+  );
 
-  var expectedValueError = "ValueError: 'separator' cannot be empty";
+  var expectedValueError = "ValueError: empty separator";
   separator = "";
   expect(() => inputString.pysplit(separator)).toThrow(expectedValueError);
 });
