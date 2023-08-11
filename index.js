@@ -66,7 +66,6 @@ String.prototype.pysplit = function (separator = " ", maxsplit = -1) {
   }
   const tokens = this.split(separator);
   const concatenation = [tokens.slice(maxsplit).join(separator)];
-  console.log(concatenation);
   return concatenation == ""
     ? tokens.slice(0, maxsplit)
     : tokens.slice(0, maxsplit).concat(concatenation);
