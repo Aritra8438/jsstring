@@ -88,3 +88,123 @@ test("index method returns the first occurrence of the substring in the given ra
   stringToSearch = " world.";
   expect(() => inputString.index(stringToSearch)).toThrow(expectedValueError);
 });
+
+test("count method returns the count the occurrences of a specified substring or character within the given string", () => {
+  var inputString = "Hello World";
+  var stringToSearch = "";
+  var expectedOutput = 12;
+  expect(inputString.count(stringToSearch)).toBe(expectedOutput);
+
+  inputString = "Hello World";
+  stringToSearch = "Hello";
+  expectedOutput = 1;
+  expect(inputString.count(stringToSearch)).toBe(expectedOutput);
+
+  inputString = "Hello Hello World, Hello";
+  stringToSearch = "Hello";
+  expectedOutput = 3;
+  expect(inputString.count(stringToSearch)).toBe(expectedOutput);
+
+  inputString = "HELLO WORLD";
+  stringToSearch = "Hello";
+  expectedOutput = 0;
+  expect(inputString.count(stringToSearch)).toBe(expectedOutput);
+
+  inputString = "HELLO WORLD";
+  stringToSearch = "O";
+  expectedOutput = 2;
+  expect(inputString.count(stringToSearch)).toBe(expectedOutput);
+
+  inputString = "HELLO WORLD";
+  stringToSearch = "o";
+  expectedOutput = 0;
+  expect(inputString.count(stringToSearch)).toBe(expectedOutput);
+
+  inputString = "Hello Hello World, Hello";
+  stringToSearch = "Hello ";
+  expectedOutput = 2;
+  expect(inputString.count(stringToSearch)).toBe(expectedOutput);
+
+  inputString = "Hello Hello World, Hello";
+  stringToSearch = "Hello ";
+  expectedOutput = 2;
+  expect(inputString.count(stringToSearch, 0, 100)).toBe(expectedOutput);
+
+  inputString = "Hello Hello World, Hello";
+  stringToSearch = "Hello ";
+  expectedOutput = 1;
+  expect(inputString.count(stringToSearch, 5, 100)).toBe(expectedOutput);
+
+  inputString = "Hello Hello World, Hello";
+  stringToSearch = "Hello ";
+  expectedOutput = 0;
+  expect(inputString.count(stringToSearch, 7, 100)).toBe(expectedOutput);
+
+  inputString = "Hello Hello World, Hello";
+  stringToSearch = "Hello ";
+  expectedOutput = 0;
+  expect(inputString.count(stringToSearch, 100, 7)).toBe(expectedOutput);
+});
+
+test("endswith method determines whether the string ends with the specified suffix", () => {
+  var inputString = "Hello, World!";
+  var suffix = "";
+  var expectedOutput = true;
+  expect(inputString.endswith(suffix)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "World!";
+  expectedOutput = true;
+  expect(inputString.endswith(suffix)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "Hello";
+  expectedOutput = false;
+  expect(inputString.endswith(suffix)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "!";
+  expectedOutput = false;
+  expect(inputString.endswith(suffix, 10, 1)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "WORLD!";
+  expectedOutput = false;
+  expect(inputString.endswith(suffix)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "o";
+  expectedOutput = true;
+  expect(inputString.endswith(suffix, -1, 5)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "!";
+  expectedOutput = true;
+  expect(inputString.endswith(suffix, 5, 100)).toBe(expectedOutput);
+
+  inputString = "";
+  suffix = "";
+  expectedOutput = true;
+  expect(inputString.endswith(suffix)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "Hello, World!";
+  expectedOutput = true;
+  expect(inputString.endswith(suffix)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "!";
+  expectedOutput = true;
+  expect(inputString.endswith(suffix)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  suffix = "Hello, World! ";
+  expectedOutput = false;
+  expect(inputString.endswith(suffix)).toBe(expectedOutput);
+
+  inputString = "Hello, World!";
+  var expectedTypeError = "'suffix' must be a string";
+  suffix = 5;
+  expect(() => inputString.endswith(suffix)).toThrow(expectedTypeError);
+
+});

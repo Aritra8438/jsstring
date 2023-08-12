@@ -18,4 +18,21 @@ interface String {
    * @param end Search upto this position. If omitted, searches till the end of the string.
    */
   index(value: string, start?: number, end?: number): number | undefined;
+
+  /**
+   * Returns the count of the occurrences of a specified substring or character within the given string.
+   * @param sub The substring to search.
+   * @param start The position to start searching. If omitted, search starts at the beginning.
+   * @param end Search upto this position. If omitted, searches till the end of the string.
+   */
+  count(sub: string, start?: number, end?: number): number;
+
+  /**
+ * Returns true if the given string ends with the specified suffix within a specified range, else false.
+ * @param suffix The suffix to check.
+ * @param start The position to start checking. If omitted, check starts at the beginning.
+ * @param end Check up to this position. If omitted, checks until the end of the string.
+ */
+  endswith(suffix: string, start?: number, end?: number): boolean | undefined;
+
 }
