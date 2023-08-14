@@ -32,7 +32,7 @@ String.prototype.count = function (sub, start = 0, end = this.length) {
 };
 
 String.prototype.endswith = function (suffix, start = 0, end = this.length) {
-  if (typeof suffix !== 'string') {
+  if (typeof suffix !== "string") {
     throw new TypeError("'suffix' must be a string");
   }
   if (end > this.length) {
@@ -44,8 +44,31 @@ String.prototype.endswith = function (suffix, start = 0, end = this.length) {
   if (end - start < suffix.length) {
     return false;
   }
-  const substring = this.slice(start, end);
+  substring = this.slice(start, end);
   return substring.endsWith(suffix);
+};
+
+String.prototype.pysplit = function (separator = " ", maxsplit = -1) {
+  if (typeof separator !== "string") {
+    throw new TypeError("'separator' must be a string");
+  }
+  if (typeof maxsplit !== "number") {
+    throw new TypeError("'maxsplit' must be a number");
+  }
+  if (separator === "") {
+    throw new Error("ValueError: empty separator");
+  }
+  if (maxsplit === -1) {
+    return this.split(separator);
+  }
+  if (maxsplit === 0) {
+    return [this.toString()];
+  }
+  const tokens = this.split(separator);
+  const concatenation = [tokens.slice(maxsplit).join(separator)];
+  return concatenation == ""
+    ? tokens.slice(0, maxsplit)
+    : tokens.slice(0, maxsplit).concat(concatenation);
 };
 
 module.exports = {};
