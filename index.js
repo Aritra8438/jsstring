@@ -75,21 +75,16 @@ String.prototype.center = function (width, fillchar = ' ') {
   if (typeof width !== 'number') {
     throw new TypeError("'width' must be a number");
   }
-
   if (typeof fillchar !== 'string' || fillchar.length !== 1) {
     throw new TypeError("The fill character must be exactly one character long");
   }
-
   if (this.length >= width) {
     return this.toString();
   }
-
   const padding = width - this.length;
   const leftPadding = Math.floor(padding / 2);
   const rightPadding = padding - leftPadding;
-
   const centeredText = fillchar.repeat(leftPadding) + this + fillchar.repeat(rightPadding);
-
   return centeredText;
 };
 
