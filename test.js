@@ -280,7 +280,7 @@ test("center function centers the string within the specified width", () => {
   var expectedOutput = "***Hello, world!****";
   expect(originalText.center(width, fillchar)).toEqual(expectedOutput);
 
-  width = 15;
+  width = 13;
   expectedOutput = "Hello, world!";
   expect(originalText.center(width)).toEqual(expectedOutput);
 
