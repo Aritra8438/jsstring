@@ -20,6 +20,11 @@ interface String {
   index(value: string, start?: number, end?: number): number | undefined;
 
   /**
+   * Returns true if the string is alphanumeric else it returns false is string contains non-alphanumeric characters.
+   */
+  isalnum(): boolean; 
+
+  /**
    * Returns the count of the occurrences of a specified substring or character within the given string.
    * @param sub The substring to search.
    * @param start The position to start searching. If omitted, search starts at the beginning.

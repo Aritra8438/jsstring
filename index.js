@@ -18,6 +18,13 @@ String.prototype.index = function (value, start = 0, end = this.length) {
   }
 };
 
+String.prototype.isalnum = function () {
+  var regEx = /^[0-9a-zA-Z]+$/;
+  if (this.match(regEx))
+    return true;
+  return false;
+};
+
 String.prototype.count = function (sub, start = 0, end = this.length) {
   if (sub == "") {
     return end - start > 0 ? end - start + 1 : 0;

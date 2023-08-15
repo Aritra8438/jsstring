@@ -89,6 +89,16 @@ test("index method returns the first occurrence of the substring in the given ra
   expect(() => inputString.index(stringToSearch)).toThrow(expectedValueError);
 });
 
+test("isalnum function returns a boolean value indicating if the string only contains alphanumeric characters or not", () => {
+  var inputString = "helloworld";
+  var expectedOutput = true;
+  expect(inputString.isalnum()).toBe(expectedOutput);
+
+  inputString = "hello World@345";
+  expectedOutput = false;
+  expect(inputString.isalnum()).toBe(expectedOutput);
+});
+
 test("count method returns the count the occurrences of a specified substring or character within the given string", () => {
   var inputString = "Hello World";
   var stringToSearch = "";
