@@ -41,4 +41,11 @@ interface String {
    * @param maxsplit The maximum number of splits. If omitted or negative, the string is split as many times as possible.
    */
   pysplit(separator?: string, maxsplit?: number): string[];
+
+  /**
+  * Returns a string centered within a specified width by adding padding characters on both sides.
+  * @param width The total width of the centered string.
+  * @param fillchar The character used for padding. Must be a single character. Default is a space.
+  */
+  center(width: number, fillchar: string = ' '): string;
 }

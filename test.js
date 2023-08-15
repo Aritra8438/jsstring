@@ -271,3 +271,30 @@ test("split method splits the string into an array of substrings", () => {
   separator = "";
   expect(() => inputString.pysplit(separator)).toThrow(expectedValueError);
 });
+
+
+test("center function centers the string within the specified width", () => {
+  var originalText = "Hello, world!";
+  var width = 20;
+  var fillchar = "*";
+  var expectedOutput = "***Hello, world!****";
+  expect(originalText.center(width, fillchar)).toEqual(expectedOutput);
+
+  width = 13;
+  expectedOutput = "Hello, world!";
+  expect(originalText.center(width)).toEqual(expectedOutput);
+
+  width = 5;
+  fillchar = '-';
+  expectedOutput = "Hello, world!";
+  expect(originalText.center(width, fillchar)).toEqual(expectedOutput);
+
+  var expectedTypeError = "'width' must be a number";
+  width = "abc"; // Not a number
+  expect(() => originalText.center(width)).toThrow(expectedTypeError);
+
+  expectedTypeError = "The fill character must be exactly one character long";
+  width = 20;
+  fillchar = "**"; // Not a single character
+  expect(() => originalText.center(width, fillchar)).toThrow(expectedTypeError);
+});
