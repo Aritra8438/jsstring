@@ -9,6 +9,7 @@
   "author": "Aritra Majumder",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^8.46.0",
     "jest": "^29.6.2"
   }
 }
