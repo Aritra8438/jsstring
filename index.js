@@ -22,9 +22,7 @@ String.prototype.isalnum = function () {
   var regEx = /^[0-9a-zA-Z]+$/;
    if(this.match(regEx))
      return true;
-   else
-     return false;
-  
+   return false;
 };
 
 module.exports = {};

@@ -20,8 +20,7 @@ interface String {
   index(value: string, start?: number, end?: number): number | undefined;
 
   /**
-   * Returns true if the string is alphanumeric.
-   * Returns false if the string contains non-alphanumeric characters. 
+   * Returns true if the string is alphanumeric else it returns false is string contains non-alphanumeric characters.
    */
   isalnum(): boolean; 
 }
